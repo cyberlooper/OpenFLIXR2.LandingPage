@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+  <link rel="stylesheet" href="assets/css/animate.css">
+  <link rel="stylesheet" href="assets/font-awesome/css/font-awesome.min.css">
+  <link rel="apple-touch-icon" sizes="57x57" href="apple-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="apple-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="apple-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="apple-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="apple-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="apple-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="apple-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="apple-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+  <link rel="manifest" href="manifest.json">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-TileImage" content="ms-icon-144x144.png">
+  <meta name="theme-color" content="#ffffff">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, height=device-height, initial-scale=0.9, user-scalable=yes, maximum-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+<script type="text/javascript" src="assets/js/particles.js"></script>
+  <style>
+    body.offline #link-bar {
+      display: none;
+    }
+
+    body.online #link-bar {
+      display: block;
+    }
+
+#particles-js canvas{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+.roundedc {
+border-radius:10px;
+}
+  </style>
+  <script>
+    var NETDATA_BADGES_AUTOREFRESH_SECONDS = 5;
+
+    function refreshNetdataBadges() {
+      var now = new Date().getTime().toString();
+      $('.netdata-badge').each(function() {
+        this.src = this.src.replace(/\&_=\d*/, '') + '&_=' + now;
+      });
+      setTimeout(refreshNetdataBadges, NETDATA_BADGES_AUTOREFRESH_SECONDS * 1000);
+    }
+    setTimeout(refreshNetdataBadges, NETDATA_BADGES_AUTOREFRESH_SECONDS * 1000);
+  </script>
+  <script src="assets/js/ping.js"></script>
+  <script type='text/javascript'>
+    HTMLElement.prototype.hasClass = function(className) {
+      if (this.classList) {
+        return this.classList.contains(className);
+      } else {
+        return (-1 < this.className.indexOf(className));
+      }
+    };
+
+    HTMLElement.prototype.addClass = function(className) {
+      if (this.classList) {
+        this.classList.add(className);
+      } else if (!this.hasClass(className)) {
+        var classes = this.className.split(" ");
+        classes.push(className);
+        this.className = classes.join(" ");
+      }
+      return this;
+    };
+
+    HTMLElement.prototype.removeClass = function(className) {
+      if (this.classList) {
+        this.classList.remove(className);
+      } else {
+        var classes = this.className.split(" ");
+        classes.splice(classes.indexOf(className), 1);
+        this.className = classes.join(" ");
+      }
+      return this;
+    };
+
+    function checkServer() {
+      var p = new Ping();
+      var server = document.domain //Try to get it automagically, but you can manually specify this
+      var timeout = 20; //Milliseconds
+      var body = document.getElementsByTagName("body")[0];
+      p.ping(server + ":443", function(data) {
+        var serverMsg = document.getElementById("server-status-msg");
+        var serverImg = document.getElementById("server-status-img");
+        if (data < 10000) {
+          serverMsg.innerHTML = 'Online';
+          serverImg.src = "assets/img/check.png";
+          body.addClass('online').removeClass("offline");
+        } else {
+          serverMsg.innerHTML = 'Online';
+          serverImg.src = "assets/img/check.png";
+        }
+      }, timeout);
+      document.getElementById("latest-iframe").src = '/latest';
+    }
+  </script>
+
+  <title>OpenFLIXR Media Server</title>
+
+
+  <!-- Bootstrap core CSS -->
+  <link href="assets/css/bootstrap.css" rel="stylesheet">
+
+  <!-- Custom styles -->
+  <link href="assets/css/main.css" rel="stylesheet">
+
+  <!-- Fonts from Google Fonts -->
+  <link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
+
+</head>
+
+<body id="particles-js" onload="checkServer()" class="offline">
+<script>
+
+particlesJS("particles-js", {
+  "particles": {
+    "number": {
+      "value": 122,
+      "density": {
+        "enable": true,
+        "value_area": 1000
+      }
+    },
+    "color": {
+      "value": ["#bfbfbf", "#bfbfbf", "#bfbfbf", "#bfbfbf"]
+    },
+    "shape": {
+      "type": "circle",
+      "stroke": {
+        "width": 0,
+        "color": "#bfbfbf"
+      },
+      "polygon": {
+        "nb_sides": 15
+      }
+    },
+    "opacity": {
+      "value": 0.5,
+      "random": false,
+      "anim": {
+        "enable": false,
+        "speed": 1.5,
+        "opacity_min": 0.15,
+        "sync": false
+      }
+    },
+    "size": {
+      "value": 1.5,
+      "random": false,
+      "anim": {
+        "enable": true,
+        "speed": 2,
+        "size_min": 0.15,
+        "sync": false
+      }
+    },
+    "line_linked": {
+      "enable": true,
+      "distance": 110,
+      "color": "#c4c4c4",
+      "opacity": 0.25,
+      "width": 1
+    },
+    "move": {
+      "enable": true,
+      "speed": 1.6,
+      "direction": "none",
+      "random": false,
+      "straight": false,
+      "out_mode": "out",
+      "bounce": false,
+      "attract": {
+        "enable": true,
+        "rotateX": 600,
+        "rotateY": 1200
+      }
+    }
+  },
+  "interactivity": {
+    "detect_on": "window",
+    "events": {
+      "onhover": {
+        "enable": false,
+        "mode": "repulse"
+      },
+      "onclick": {
+        "enable": true,
+        "mode": "push"
+      },
+      "resize": true
+    },
+    "modes": {
+      "grab": {
+        "distance": 400,
+        "line_linked": {
+          "opacity": 1
+        }
+      },
+      "bubble": {
+        "distance": 400,
+        "size": 40,
+        "duration": 2,
+        "opacity": 8,
+        "speed": 3
+      },
+      "repulse": {
+        "distance": 200,
+        "duration": 0.4
+      },
+      "push": {
+        "particles_nb": 4
+      },
+      "remove": {
+        "particles_nb": 2
+      }
+    }
+  },
+  "retina_detect": true
+});
+var count_particles, stats, update;
+stats = new Stats;
+stats.setMode(0);
+stats.domElement.style.position = 'absolute';
+stats.domElement.style.left = '0px';
+stats.domElement.style.top = '0px';
+document.body.appendChild(stats.domElement);
+count_particles = document.querySelector('.js-count-particles');
+update = function() {
+  stats.begin();
+  stats.end();
+  if (window.pJSDom[0].pJS.particles && window.pJSDom[0].pJS.particles.array) {
+    count_particles.innerText = window.pJSDom[0].pJS.particles.array.length;
+  }
+  requestAnimationFrame(update);
+};
+requestAnimationFrame(update);;        
+
+</script>
+  <div class="hidden-sm hidden-xs">
+    <div class="container">
+      <div class="hidden-md hidden-lg hidden-sm hidden-xs col-md-10 col-md-offset-2" style="top:1vh;">
+        <div class="col-md-2"><img class="netdata-badge" src="/netdata/api/v1/badge.svg?chart=system.cpu&label=CPU&precision=1&after=-60&units=%20%25&value_color=grey:null|%231abc9c<75|%23F1C40F<85|%23E74C3C<100|%23235cbde0"></img>
+        </div>
+        <div class="col-md-2"><img class="netdata-badge" src="/netdata/api/v1/badge.svg?chart=system.ram&label=RAM&precision=1&after=-60&units=%20%25&options=percentage&dimensions=used&value_color=grey:null|%231abc9c<75|%23F1C40F<85|%23E74C3C<100|%23235cbde0"></img>
+        </div>
+        <div class="col-md-2"><img class="netdata-badge" src="/netdata/api/v1/badge.svg?chart=disk_space._&label=SDA&precision=1&units=%20%25&options=percentage&dimensions=used&value_color=grey:null|%231abc9c<75|%23F1C40F<85|%23E74C3C<100|%23235cbde0"></img>
+        </div>
+        <div class="col-md-2"><img class="netdata-badge" src="/netdata/api/v1/badge.svg?chart=system.ipv4&label=DN&units=Mbit&dimensions=received&divide=1000&precision=1&value_color=grey:null|%231abc9c<100|%23e128a9<10000"></img>
+        </div>
+        <div class="col-md-2"><img class="netdata-badge" src="/netdata/api/v1/badge.svg?chart=system.ipv4&label=UP&options=abs&units=Mbit&dimensions=sent&divide=1000&precision=1&value_color=grey:null|%235cbde0<500|%23e128a9<10000"></img>
+       </div>
+</div>
+      </div>
+  </div>
+
+  <div class="container" id="link-bar">
+
+    <div class="row" style="top:25px;right:3%;position:fixed;z-index:5;">
+      <ul class="dropdown-menu-left">
+        <a href="#" class="dropdown-toggle col-md-1 pull-right" data-toggle="dropdown" style="right: 1vw;"><h3><span class="fa fa-bars"></span></h3></a>
+        <ul class="dropdown-menu">
+          <li><a href="/setup" target="_blank"><span class="fa fa-sliders" style="padding-right: 15px;"></span>Setup</a></li>
+          <li class="divider" style="background-color: #4a4a4a;"></li>
+          <li><a href="https://openflixr.slack.com/" target="_blank"><span class="fa fa-slack" style="padding-right: 15px;"></span>Chat</a></li>
+          <li class="divider" style="background-color: #4a4a4a;"></li>
+          <li><a href="http://www.openflixr.com/forum" target="_blank"><span class="fa fa-comments-o" style="padding-right: 15px;"></span>Forums</a></li>
+          <li class="divider" style="background-color: #4a4a4a;"></li>
+          <li><a href="https://github.com/mfrelink/OpenFLIXR.OnlineUpdate" target="_blank"><span class="fa fa-github" style="padding-right: 15px;"></span>Github</a></li>
+          <li class="divider" style="background-color: #4a4a4a;"></li>
+          <li><a href="https://www.paypal.me/openflixr" target="_blank"><span class="fa fa-heart" style="padding-right: 15px;"></span>Donate</a></li>
+        </ul>
+      </ul>
+    </div>
+
+    <div class="row mt centered">
+      <div class="col-md-4 animated fadeInLeft">
+        <a href="/htpc" target="_top">
+          <img src="assets/img/s04.png" width="180" alt="OpenFLIXR">
+          <h4>OpenFLIXR</h4>
+          <p>Continue to login</p>
+        </a>
+      </div>
+
+      <div class="col-md-4 animated zoomIn">
+        <a href="/request" target="_top">
+          <img src="assets/img/s06.png" width="180" alt="Request">
+          <h4>Request</h4>
+          <p>Request a Movie or TV Show</p>
+        </a>
+      </div>
+
+      <div class="col-md-4 animated fadeInRight">
+        <a href="/plex" target="_top">
+          <img src="assets/img/s05.png" width="180" alt="Watch Now">
+          <h4>Watch Now</h4>
+          <p>Continue to login</p>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div id="headerwrap" class="container hidden-sm hidden-xs">
+    <div class="container hidden-sm hidden-xs">
+      <div class="row">
+
+        <div>
+          <div id="myCarousel" class="carousel" data-ride="carousel" data-interval="10000">
+            <!-- Carousel indicators -->
+            <ol class="carousel-indicators">
+              <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+              <li data-target="#myCarousel" data-slide-to="1"></li>
+            </ol>
+            <!-- Wrapper for carousel items -->
+            <div class="carousel-inner">
+              <div class="item active animated fadeIn" style="padding-top:5px;">
+
+
+                <div class="col-md-6">
+
+                  <h1><br/>
+																				<center>Server status</h1></center>
+                  <center>
+                    <h4 id="server-status-msg" style="color:#1abc9c"><img src="assets/img/puff.svg">	 Connecting...</h4></center>
+                  <br/>
+                  <br/>
+                  <br/>
+                  <form class="form-inline" role="form">
+                    <div class="form-group">
+
+                    </div>
+                </div>
+                <div class="col-md-5">
+                  <img id="server-status-img" class="img-responsive" src="assets/img/checking.png">
+                </div>
+
+
+              </div>
+              <div class="item animated fadeIn" style="z-index:-2">
+
+
+                <div class="embed-responsive embed-responsive-16by9" style="text-align:center">
+                  <iframe id="latest-iframe" style="border:none" scrolling="no" class="embed-responsive-item roundedc" width="100%" height="500"></iframe>
+                </div>
+
+
+              </div>
+
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+  </div>
+  <div class="row-fluid " style="bottom:0;width: 90%;position: fixed; ">
+    <div class="hidden-sm hidden-xs col-md-10 col-md-offset-4 " style="position:absolute;margin-top:33px;width:100vw; ">
+      <div class="col-sm-1 "><img class="netdata-badge " src="/netdata/api/v1/badge.svg?chart=system.cpu&label=CPU&precision=1&after=-60&units=%20%25&value_color=grey:null|%231abc9c<75|%23F1C40F<85|%23E74C3C<100|%23235cbde0 "></img>
+      </div>
+      <div class="col-sm-1 "><img class="netdata-badge " src="/netdata/api/v1/badge.svg?chart=system.ram&label=RAM&precision=1&after=-60&units=%20%25&options=percentage&dimensions=used&value_color=grey:null|%231abc9c<75|%23F1C40F<85|%23E74C3C<100|%23235cbde0 "></img>
+      </div>
+      <div class="col-sm-1 "><img class="netdata-badge " src="/netdata/api/v1/badge.svg?chart=disk_space._&label=SDA&precision=1&units=%20%25&options=percentage&dimensions=used&value_color=grey:null|%231abc9c<75|%23F1C40F<85|%23E74C3C<100|%23235cbde0 "></img>
+      </div>
+      <div class="col-sm-1 "><img class="netdata-badge " src="/netdata/api/v1/badge.svg?chart=system.ipv4&label=DN&units=Mbit&dimensions=received&divide=1000&precision=1&value_color=grey:null|%231abc9c<100|%23e128a9<10000 "></img>
+      </div>
+      <div class="col-sm-1 "><img class="netdata-badge " src="/netdata/api/v1/badge.svg?chart=system.ipv4&label=UP&options=abs&units=Mbit&dimensions=sent&divide=1000&precision=1&value_color=grey:null|%235cbde0<500|%23e128a9<10000 "></img>
+      </div>
+</div> 
+   <div class="container-fluid ">
+
+      <div class="col-md-4 " style="margin-top:27px; margin-bottom:10px; ">
+        <span style="color:#7b7b7b; padding-left: 1vw; "><i class="fa fa-cube " style="color:#7b7b7b;font-size: 1.2em; "></i><a style="color:#bfbfbf " href="http://openflixr.com " target="_blank ">OpenFLIXR &nbsp;</a>| &nbsp;Version 2.0</span>
+      </div>
+
+    </div>
+  </div>
+  </div>
+</body>
+<script src="assets/js/jquery-3.1.0.min.js" type="text/javascript"></script>
+<script src="assets/js/bootstrap.js" type="text/javascript"></script>
+</html>
