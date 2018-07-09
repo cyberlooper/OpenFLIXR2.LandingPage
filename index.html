@@ -1,7 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
-
 <head>
   <link rel="stylesheet" href="assets/css/animate.css">
   <link rel="stylesheet" href="assets/font-awesome/css/font-awesome.min.css">
@@ -29,7 +27,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, height=device-height, initial-scale=0.9, user-scalable=yes, maximum-scale=1.0">
   <meta name="description" content="">
   <meta name="author" content="">
-<script type="text/javascript" src="assets/js/particles.js"></script>
+  <script type="text/javascript" src="assets/js/particles.js"></script>
   <style>
     body.offline #link-bar {
       display: none;
@@ -39,15 +37,16 @@
       display: block;
     }
 
-#particles-js canvas{
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-}
-.roundedc {
-border-radius:10px;
-}
+    #particles-js canvas {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+    }
+
+    .roundedc {
+      border-radius: 10px;
+    }
   </style>
   <script>
     var NETDATA_BADGES_AUTOREFRESH_SECONDS = 5;
@@ -113,148 +112,139 @@ border-radius:10px;
       document.getElementById("latest-iframe").src = '/latest';
     }
   </script>
-
   <title>OpenFLIXR Media Server</title>
-
-
   <!-- Bootstrap core CSS -->
   <link href="assets/css/bootstrap.css" rel="stylesheet">
-
   <!-- Custom styles -->
   <link href="assets/css/main.css" rel="stylesheet">
-
   <!-- Fonts from Google Fonts -->
   <link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
-
 </head>
-
 <body id="particles-js" onload="checkServer()" class="offline">
-<script>
-
-particlesJS("particles-js", {
-  "particles": {
-    "number": {
-      "value": 122,
-      "density": {
-        "enable": true,
-        "value_area": 1000
-      }
-    },
-    "color": {
-      "value": ["#bfbfbf", "#bfbfbf", "#bfbfbf", "#bfbfbf"]
-    },
-    "shape": {
-      "type": "circle",
-      "stroke": {
-        "width": 0,
-        "color": "#bfbfbf"
-      },
-      "polygon": {
-        "nb_sides": 15
-      }
-    },
-    "opacity": {
-      "value": 0.5,
-      "random": false,
-      "anim": {
-        "enable": false,
-        "speed": 1.5,
-        "opacity_min": 0.15,
-        "sync": false
-      }
-    },
-    "size": {
-      "value": 1.5,
-      "random": false,
-      "anim": {
-        "enable": true,
-        "speed": 2,
-        "size_min": 0.15,
-        "sync": false
-      }
-    },
-    "line_linked": {
-      "enable": true,
-      "distance": 110,
-      "color": "#c4c4c4",
-      "opacity": 0.25,
-      "width": 1
-    },
-    "move": {
-      "enable": true,
-      "speed": 1.6,
-      "direction": "none",
-      "random": false,
-      "straight": false,
-      "out_mode": "out",
-      "bounce": false,
-      "attract": {
-        "enable": true,
-        "rotateX": 600,
-        "rotateY": 1200
-      }
-    }
-  },
-  "interactivity": {
-    "detect_on": "window",
-    "events": {
-      "onhover": {
-        "enable": false,
-        "mode": "repulse"
-      },
-      "onclick": {
-        "enable": true,
-        "mode": "push"
-      },
-      "resize": true
-    },
-    "modes": {
-      "grab": {
-        "distance": 400,
+  <script>
+    particlesJS("particles-js", {
+      "particles": {
+        "number": {
+          "value": 122,
+          "density": {
+            "enable": true,
+            "value_area": 1000
+          }
+        },
+        "color": {
+          "value": ["#bfbfbf", "#bfbfbf", "#bfbfbf", "#bfbfbf"]
+        },
+        "shape": {
+          "type": "circle",
+          "stroke": {
+            "width": 0,
+            "color": "#bfbfbf"
+          },
+          "polygon": {
+            "nb_sides": 15
+          }
+        },
+        "opacity": {
+          "value": 0.5,
+          "random": false,
+          "anim": {
+            "enable": false,
+            "speed": 1.5,
+            "opacity_min": 0.15,
+            "sync": false
+          }
+        },
+        "size": {
+          "value": 1.5,
+          "random": false,
+          "anim": {
+            "enable": true,
+            "speed": 2,
+            "size_min": 0.15,
+            "sync": false
+          }
+        },
         "line_linked": {
-          "opacity": 1
+          "enable": true,
+          "distance": 110,
+          "color": "#c4c4c4",
+          "opacity": 0.25,
+          "width": 1
+        },
+        "move": {
+          "enable": true,
+          "speed": 1.6,
+          "direction": "none",
+          "random": false,
+          "straight": false,
+          "out_mode": "out",
+          "bounce": false,
+          "attract": {
+            "enable": true,
+            "rotateX": 600,
+            "rotateY": 1200
+          }
         }
       },
-      "bubble": {
-        "distance": 400,
-        "size": 40,
-        "duration": 2,
-        "opacity": 8,
-        "speed": 3
+      "interactivity": {
+        "detect_on": "window",
+        "events": {
+          "onhover": {
+            "enable": false,
+            "mode": "repulse"
+          },
+          "onclick": {
+            "enable": true,
+            "mode": "push"
+          },
+          "resize": true
+        },
+        "modes": {
+          "grab": {
+            "distance": 400,
+            "line_linked": {
+              "opacity": 1
+            }
+          },
+          "bubble": {
+            "distance": 400,
+            "size": 40,
+            "duration": 2,
+            "opacity": 8,
+            "speed": 3
+          },
+          "repulse": {
+            "distance": 200,
+            "duration": 0.4
+          },
+          "push": {
+            "particles_nb": 4
+          },
+          "remove": {
+            "particles_nb": 2
+          }
+        }
       },
-      "repulse": {
-        "distance": 200,
-        "duration": 0.4
-      },
-      "push": {
-        "particles_nb": 4
-      },
-      "remove": {
-        "particles_nb": 2
+      "retina_detect": true
+    });
+    var count_particles, stats, update;
+    stats = new Stats;
+    stats.setMode(0);
+    stats.domElement.style.position = 'absolute';
+    stats.domElement.style.left = '0px';
+    stats.domElement.style.top = '0px';
+    document.body.appendChild(stats.domElement);
+    count_particles = document.querySelector('.js-count-particles');
+    update = function() {
+      stats.begin();
+      stats.end();
+      if (window.pJSDom[0].pJS.particles && window.pJSDom[0].pJS.particles.array) {
+        count_particles.innerText = window.pJSDom[0].pJS.particles.array.length;
       }
-    }
-  },
-  "retina_detect": true
-});
-var count_particles, stats, update;
-stats = new Stats;
-stats.setMode(0);
-stats.domElement.style.position = 'absolute';
-stats.domElement.style.left = '0px';
-stats.domElement.style.top = '0px';
-document.body.appendChild(stats.domElement);
-count_particles = document.querySelector('.js-count-particles');
-update = function() {
-  stats.begin();
-  stats.end();
-  if (window.pJSDom[0].pJS.particles && window.pJSDom[0].pJS.particles.array) {
-    count_particles.innerText = window.pJSDom[0].pJS.particles.array.length;
-  }
-  requestAnimationFrame(update);
-};
-requestAnimationFrame(update);;        
-
-</script>
+      requestAnimationFrame(update);
+    };
+    requestAnimationFrame(update);;
+  </script>
   <div class="hidden-sm hidden-xs">
     <div class="container">
       <div class="hidden-md hidden-lg hidden-sm hidden-xs col-md-10 col-md-offset-2" style="top:1vh;">
@@ -267,13 +257,11 @@ requestAnimationFrame(update);;
         <div class="col-md-2"><img class="netdata-badge" src="/netdata/api/v1/badge.svg?chart=system.ipv4&label=DN&units=Mbit&dimensions=received&divide=1000&precision=1&value_color=grey:null|%231abc9c<100|%23e128a9<10000"></img>
         </div>
         <div class="col-md-2"><img class="netdata-badge" src="/netdata/api/v1/badge.svg?chart=system.ipv4&label=UP&options=abs&units=Mbit&dimensions=sent&divide=1000&precision=1&value_color=grey:null|%235cbde0<500|%23e128a9<10000"></img>
-       </div>
-</div>
+        </div>
       </div>
+    </div>
   </div>
-
   <div class="container" id="link-bar">
-
     <div class="row" style="top:25px;right:3%;position:fixed;z-index:5;">
       <ul class="dropdown-menu-left">
         <a href="#" class="dropdown-toggle col-md-1 pull-right" data-toggle="dropdown" style="right: 1vw;"><h3><span class="fa fa-bars"></span></h3></a>
@@ -290,7 +278,6 @@ requestAnimationFrame(update);;
         </ul>
       </ul>
     </div>
-
     <div class="row mt centered">
       <div class="col-md-4 animated fadeInLeft">
         <a href="/htpc" target="_top">
@@ -299,7 +286,6 @@ requestAnimationFrame(update);;
           <p>Continue to login</p>
         </a>
       </div>
-
       <div class="col-md-4 animated zoomIn">
         <a href="/request" target="_top">
           <img src="assets/img/s06.png" width="180" alt="Request">
@@ -307,7 +293,6 @@ requestAnimationFrame(update);;
           <p>Request a Movie or TV Show</p>
         </a>
       </div>
-
       <div class="col-md-4 animated fadeInRight">
         <a href="/plex" target="_top">
           <img src="assets/img/s05.png" width="180" alt="Watch Now">
@@ -317,11 +302,9 @@ requestAnimationFrame(update);;
       </div>
     </div>
   </div>
-
   <div id="headerwrap" class="container hidden-sm hidden-xs">
     <div class="container hidden-sm hidden-xs">
       <div class="row">
-
         <div>
           <div id="myCarousel" class="carousel" data-ride="carousel" data-interval="10000">
             <!-- Carousel indicators -->
@@ -332,12 +315,9 @@ requestAnimationFrame(update);;
             <!-- Wrapper for carousel items -->
             <div class="carousel-inner">
               <div class="item active animated fadeIn" style="padding-top:5px;">
-
-
                 <div class="col-md-6">
-
                   <h1><br/>
-																				<center>Server status</h1></center>
+									<center>Server status</h1></center>
                   <center>
                     <h4 id="server-status-msg" style="color:#1abc9c"><img src="assets/img/puff.svg">	 Connecting...</h4></center>
                   <br/>
@@ -345,32 +325,21 @@ requestAnimationFrame(update);;
                   <br/>
                   <form class="form-inline" role="form">
                     <div class="form-group">
-
                     </div>
                 </div>
                 <div class="col-md-5">
                   <img id="server-status-img" class="img-responsive" src="assets/img/checking.png">
                 </div>
-
-
               </div>
-              <div class="item animated fadeIn" style="z-index:-2">
-
-
+              <div class="item animated fadeIn" style="z-index:2">
                 <div class="embed-responsive embed-responsive-16by9" style="text-align:center">
                   <iframe id="latest-iframe" style="border:none" scrolling="no" class="embed-responsive-item roundedc" width="100%" height="500"></iframe>
                 </div>
-
-
               </div>
-
-
             </div>
           </div>
         </div>
       </div>
-
-
     </div>
   </div>
   </div>
@@ -386,17 +355,16 @@ requestAnimationFrame(update);;
       </div>
       <div class="col-sm-1 "><img class="netdata-badge " src="/netdata/api/v1/badge.svg?chart=system.ipv4&label=UP&options=abs&units=Mbit&dimensions=sent&divide=1000&precision=1&value_color=grey:null|%235cbde0<500|%23e128a9<10000 "></img>
       </div>
-</div> 
-   <div class="container-fluid ">
-
+    </div>
+    <div class="container-fluid ">
       <div class="col-md-4 " style="margin-top:27px; margin-bottom:10px; ">
         <span style="color:#7b7b7b; padding-left: 1vw; "><i class="fa fa-cube " style="color:#7b7b7b;font-size: 1.2em; "></i><a style="color:#bfbfbf " href="http://openflixr.com " target="_blank ">OpenFLIXR &nbsp;</a>| &nbsp;Version 2.0</span>
       </div>
-
     </div>
   </div>
   </div>
 </body>
 <script src="assets/js/jquery-3.1.0.min.js" type="text/javascript"></script>
 <script src="assets/js/bootstrap.js" type="text/javascript"></script>
+
 </html>
